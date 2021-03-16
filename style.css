@@ -80,6 +80,13 @@ p {
   margin: 4px 0px;
 }
 
+button {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
 /* Navbar */
 #navbar {
   display: flex;
@@ -120,3 +127,33 @@ p {
 .navbar__menu__item.active {
   border: 1px solid var(--color-white);
 }
+
+/* Home */
+.home {
+  background-image: url(imgs/homebackground.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  padding: 40px;
+}
+
+.home__avatar {
+  width: 250px;
+  border-radius: 50px;
+  border: 3px solid var(--color-white);
+}
+
+.home__title {
+  color: var(--color-white);
+}
+
+.home__contact {
+  border: 2px solid var(--color-white);
+  padding: 8px 12px;
+  color: var(--color-white);
+  font-weight: var(--weight-bold);
+  border-radius: var(--size-border-radius);
+}
+
+
