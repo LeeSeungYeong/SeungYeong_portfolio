@@ -5,7 +5,7 @@
   --color-dark-white: #bdbdbd;
   --color-pink: #fe918d;
   --color-dark-pink: #ff6863;
-  --color-dark-grey: #2b2b2ba4;
+  --color-dark-grey: #4e4e4e;
   --color-grey: #616161;
   --color-light-grey: #7c7979;
   --color-blue: #73aace;
@@ -21,7 +21,7 @@
   --font-micro: 14px;
 
   /* Font weight */
-  --weight-bold: 700;
+  --weight-bold: 800;
   --weight-semi-bold: 600;
   --weight-reular: 400;
   
@@ -163,6 +163,11 @@ button {
 .section {
   text-align: center;
   padding: 50px;
+  
+  margin: auto;
+}
+
+.section__container{
   max-width: 1200px;
   margin: auto;
 }
@@ -198,4 +203,59 @@ button {
   color: var(--color-dark-grey);
 }
 
+/* Skill */
+#skills {
+  background-color: var(--color-yellow);
+}
+
+.skillset__title {
+  color: var(--color-light-white);
+  margin-bottom: 16px;
+}
+
+.skillset {
+  display: flex;
+  background-color: var(--color-light-grey);
+  margin: 16px;
+  justify-content: space-between;
+  color: var(--color-light-white);
+}
+
+.tools {
+  background-color: var(--color-grey);
+  padding: 15px;
+}
+
+.etc {
+  padding: 15px;
+}
+
+.skillset__left{
+  flex-basis: 60%;
+  padding: 30px;
+  background-color: var(--color-dark-grey);
+}
+
+.skillset__right{
+  flex-basis: 40%;
+  
+}
+
+.skill__description {
+  display: flex;
+  justify-content: space-between;
+}
+
+.skill__bar {
+  width: 100%;
+  height: 6px;
+  background-color: grey;
+  margin-top: 4px; 
+  margin-bottom: 16px;
+}
+
+.skill__value {
+  background-color: var(--color-orange);
+  height: 5px;
+}
 
