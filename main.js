@@ -72,6 +72,15 @@ workBtnContainer.addEventListener('click', (event) => {
     return;
   }
 
+  // remove selection from the previous item and select new item
+  const active = document.querySelector('.category__btn.selected');
+  active.classList.remove('selected');
+  const target = event.target.nodeName === 'BUTTON' ? event.target : event.target.parentNode;
+  target.classList.add('selected');
+
+
+  // 
+
   workProjectContainer.classList.add('anim-out');
   setTimeout(() => {
     projects.forEach(project => {
@@ -86,9 +95,6 @@ workBtnContainer.addEventListener('click', (event) => {
 
 
 });
-
-
-
 
 function scrollIntoView(selector) {
   const scollTo = document.querySelector(selector);
