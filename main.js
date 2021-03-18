@@ -45,7 +45,23 @@ homeContactBtn.addEventListener('click', () => {
   scrollIntoView('#contact');
 });
 
+// Arrow button when scrolling down
+const arrowBtn = document.querySelector('.arrow__btn');
+document.addEventListener('scroll', () => {
+  if (window.scrollY > 600) {
+    arrowBtn.classList.add('active');
+  } else {
+    arrowBtn.classList.remove('active');
+  }
+});
+
+// Arrow button click event
+arrowBtn.addEventListener('click', () => {
+  scrollIntoView('#home');
+});
+
 function scrollIntoView(selector) {
   const scollTo = document.querySelector(selector);
   scollTo.scrollIntoView({ behavior: "smooth" });
 }
+

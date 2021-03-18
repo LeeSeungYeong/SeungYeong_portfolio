@@ -91,6 +91,7 @@ button {
 }
 
 
+
 /* Navbar */
 #navbar {
   display: flex;
@@ -160,6 +161,7 @@ button {
   padding: 40px;
   padding-top: 120px;
 }
+
 
 .home__avatar {
   width: 250px;
@@ -405,6 +407,28 @@ button {
 
 .contact__link i {
   transition: all var(--animation-duration) ease;
+}
+
+/* scroll */
+.arrow__btn {
+  opacity: 0;
+  position: fixed;
+  font-size: var(--font-large);
+  color: var(--color-white);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: var(--color-dark-pink);
+  bottom: 60px;
+  right: 30px;
+  transition: all var(--animation-duration) ease;
+  pointer-events: none;
+
+}
+
+.arrow__btn.active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 @media screen and (max-width: 768px) {
