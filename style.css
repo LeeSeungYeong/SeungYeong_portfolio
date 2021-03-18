@@ -90,6 +90,7 @@ button {
   cursor: pointer;
 }
 
+
 /* Navbar */
 #navbar {
   display: flex;
@@ -176,6 +177,12 @@ button {
   color: var(--color-white);
   font-weight: var(--weight-bold);
   border-radius: var(--size-border-radius);
+  transition: all var(--animation-duration) ease
+}
+
+.home__contact:hover {
+  background-color:var(--color-pink);
+  transform: scale(1.1);
 }
 
 /* Section common */
