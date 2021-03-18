@@ -60,6 +60,36 @@ arrowBtn.addEventListener('click', () => {
   scrollIntoView('#home');
 });
 
+
+// project button filtering
+const workBtnContainer = document.querySelector('.work__categories');
+const workProjectContainer = document.querySelector('.work__projects');
+const projects = document.querySelectorAll('.project');
+
+workBtnContainer.addEventListener('click', (event) => {
+  const filter = event.target.dataset.filter || event.target.parentNode.dataset.filter;
+  if (filter == null) {
+    return;
+  }
+
+  workProjectContainer.classList.add('anim-out');
+  setTimeout(() => {
+    projects.forEach(project => {
+      if (filter === "*" || project.dataset.type === filter) {
+        project.classList.remove('invisible');
+      } else {
+        project.classList.add('invisible');
+      }
+    });
+    workProjectContainer.classList.remove('anim-out');
+  }, 300);
+
+
+});
+
+
+
+
 function scrollIntoView(selector) {
   const scollTo = document.querySelector(selector);
   scollTo.scrollIntoView({ behavior: "smooth" });
