@@ -10,6 +10,7 @@ document.addEventListener('scroll', () => {
   } else {
     navbar.classList.remove('navbar--dark');
   }
+
 })
 
 // Handle scrolling when tapping on the navbar menu
@@ -23,6 +24,14 @@ navbarMenu.addEventListener('click', (event) => {
     return;
   }
   scrollIntoView(link);
+
+  navbarMenu.classList.remove('active');
+});
+
+// responsive menubar
+const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
+navbarToggleBtn.addEventListener('click', () => {
+  navbarMenu.classList.toggle('active');
 });
 
 // Make home slowly fade to transparent as the window scrolls down

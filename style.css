@@ -146,7 +146,7 @@ button {
   color: var(--color-white);
   font-size: var(--font-regular);
   display: none;
-  top : 36px;
+  top : 24px;
 }
 
 /* Home */
@@ -374,7 +374,7 @@ button {
 }
 
 .project__description h3 {
-  color: var(--color-white);
+  color: var(--color-orange);
   margin-bottom: 8px;
 }
 
@@ -448,6 +448,7 @@ button {
   #navbar {
     flex-direction: column;
     align-items: flex-start;
+    background-color: var(--color-pink);
   }
 
   .navbar__menu {
@@ -457,8 +458,13 @@ button {
     display: none;
   }
 
+  .navbar__menu.active {
+    display:block;
+  }
+
   .navbar__menu li {
-    margin-bottom: 8px;;
+    text-align: center;
+    margin-bottom: 8px;
   }
 
   .about__majors {
