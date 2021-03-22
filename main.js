@@ -10,7 +10,6 @@ document.addEventListener('scroll', () => {
   } else {
     navbar.classList.remove('navbar--dark');
   }
-
 })
 
 // Handle scrolling when tapping on the navbar menu
@@ -26,6 +25,8 @@ navbarMenu.addEventListener('click', (event) => {
   scrollIntoView(link);
 
   navbarMenu.classList.remove('active');
+
+
 });
 
 // responsive menubar
@@ -108,5 +109,57 @@ workBtnContainer.addEventListener('click', (event) => {
 function scrollIntoView(selector) {
   const scollTo = document.querySelector(selector);
   scollTo.scrollIntoView({ behavior: "smooth" });
+
+  selectNavItem(navItems[sectionIds.indexOf(selector)]);
 }
+
+
+//스크롤 할때 메뉴바에 현재 위치에 맞는 메뉴바 활성화
+// 1. 모든 세션 요소, 메뉴 아이템 가져오기
+const sectionIds = ['#home', '#about', '#skills', '#work', '#contact'];
+const sections = sectionIds.map(id => document.querySelector(id));
+
+const navItems = sectionIds.map(id => document.querySelector(`[data-link="${id}"]`));
+
+
+// 2. interseptionOpserver 구현
+let selectedNavItem = navItems[0];
+let selectNavIndex = 0;
+function selectNavItem(selected) {
+  selectedNavItem.classList.remove('active');
+  selectedNavItem = selected;
+  selectedNavItem.classList.add('active');
+}
+
+const observerOptions = {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.2,
+}
+
+const observerCallback = (entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting && entry.intersectionRatio > 0) {
+      let index = sectionIds.indexOf(`#${entry.target.id}`);
+
+      if (entry.boundingClientRect.y < 0) {
+        selectNavIndex = index + 1;
+      } else {
+        selectNavIndex = index - 1;
+      }
+    }
+  });
+};
+const observer = new IntersectionObserver(observerCallback, observerOptions);
+sections.forEach(section => observer.observe(section));
+
+window.addEventListener('wheel', () => {
+  if (window.scrollY === 0) {
+    selectNavIndex = 0;
+  } else if (Math.ceil(window.scrollY + window.innerHeight) >= document.body.clientHeight) {
+    selectNavIndex = navItems.length - 1;
+  }
+  selectNavItem(navItems[selectNavIndex]);
+});
+
 

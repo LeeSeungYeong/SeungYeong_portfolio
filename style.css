@@ -135,6 +135,10 @@ button {
   border: 1px solid transparent;
 }
 
+.navbar__menu__item.active {
+  border: 1px solid var(--color-white);
+}
+
 .navbar__menu__item:hover {
   background-color: var(--color-dark-pink);
   border: 1px solid var(--color-white);
@@ -293,6 +297,7 @@ button {
   font-size: var(--font-regular);
   padding: 8px 40px;
   margin: 4px;
+  position: relative;
 }
 
 .category__count {
@@ -303,9 +308,9 @@ button {
   border-radius: 50%;
   line-height: 24px;
   margin-left: 4px;
-  position: relative;
-  top: -16px;
+  position: absolute;
   opacity: 0;
+  top:-24px;
   transition: all var(--animation-duration) ease;
 }
 
@@ -317,7 +322,7 @@ button {
 .category__btn.selected .category__count,
 .category__btn:hover .category__count {
   opacity: 1;
-  top: 0;
+  top: 5px;
 }
 
 .work__projects {
@@ -441,6 +446,14 @@ button {
 }
 
 @media screen and (max-width: 768px) {
+
+  :root {
+    --font-large: 30px;
+    --font-medium: 18px;
+    --font-regular: 16px;
+    --font-small: 14px;
+    --font-micro: 12px;
+  }
   .navbar__toggle-btn {
     display: block;
   }
@@ -467,8 +480,15 @@ button {
     margin-bottom: 8px;
   }
 
+  .section {
+    padding: 16px;
+    padding-top: 45px;
+  }
+
   .about__majors {
     flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 0;
   }
 
   .major {
@@ -476,12 +496,32 @@ button {
     margin-bottom: 16px;
   }
 
+  .major__title {
+    margin-top: 10px;
+  }
+
   .skillset {
     flex-direction: column;
+  }
+
+  .category__btn {
+    padding: 8px 10px;
+    width: 100%;
+  }
+
+  .category__count {
+    right: 80px;
   }
 
   .project {
     flex-grow: 1;
   }
 
+  .arrow__btn {
+    font-size: var(--font-medium);
+    width: 45px;
+    height: 45px;
+    right: 16px;
+    bottom: 16px;
+  }
 }
